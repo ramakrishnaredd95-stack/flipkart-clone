@@ -1,0 +1,38 @@
+name: Deploy to Azure Web App
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: az login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZ_CREDITONALS }} 
+
+      - name: terraform init
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: terraform apply 
+        run: terraform apply -auto-approve
+        working-directory: ./terraform
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'   
+
+      - name: Publish .NET Application
+        run: dotnet publish Flipkart-clone.csproj -c Release -o ./publish
+            
+
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Flipkart-clone-webapp' 
+          package: ./publish
