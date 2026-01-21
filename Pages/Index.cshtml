@@ -1,0 +1,158 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Flipkart Clone";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flipkart Clone</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f1f3f6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2874f0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .search-box {
+            width: 400px;
+        }
+
+        /* Category Bar */
+        .category-bar {
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .category-item {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+
+        .product-img {
+            height: 180px;
+            object-fit: contain;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #212121;
+        }
+
+        .offer {
+            color: green;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔵 Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Flipkart</a>
+
+            <form class="d-flex mx-auto">
+                <input class="form-control search-box" type="search" placeholder="Search for products, brands and more">
+            </form>
+
+            <button class="btn btn-light">Login</button>
+        </div>
+    </nav>
+
+    <!-- 📦 Categories -->
+    <div class="category-bar">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col category-item">Mobiles</div>
+                <div class="col category-item">Fashion</div>
+                <div class="col category-item">Electronics</div>
+                <div class="col category-item">Home</div>
+                <div class="col category-item">Appliances</div>
+                <div class="col category-item">Travel</div>
+                <div class="col category-item">Beauty</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🛍 Products -->
+    <div class="container mt-4">
+        <h4 class="mb-3">Best Deals</h4>
+
+        <div class="row g-3">
+            <!-- Product 1 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" class="img-fluid product-img" />
+                    <h6 class="mt-2">iPhone 15</h6>
+                    <p class="price">₹79,999</p>
+                    <p class="offer">10% Off</p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" class="img-fluid product-img" />
+                    <h6 class="mt-2">Samsung Galaxy S23</h6>
+                    <p class="price">₹69,999</p>
+                    <p class="offer">15% Off</p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" class="img-fluid product-img" />
+                    <h6 class="mt-2">Sony Headphones</h6>
+                    <p class="price">₹4,999</p>
+                    <p class="offer">25% Off</p>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-3">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" class="img-fluid product-img" />
+                    <h6 class="mt-2">Laptop Backpack</h6>
+                    <p class="price">₹1,299</p>
+                    <p class="offer">40% Off</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+    
